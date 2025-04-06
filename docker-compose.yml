@@ -1,4 +1,3 @@
-version: "3.9"
 services:
     db:
         image: mysql:8
@@ -9,11 +8,11 @@ services:
             MYSQL_ROOT_PASSWORD: root
         volumes:
             - db-data:/var/lib/mysql
-            - ./mysql_data/arqueosDb.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./mysql_data/arqueosDb_creation.sql:/docker-entrypoint-initdb.d/init.sql
         networks:
-            - red_insurance
+            - red_arqueos
     app:
-        image: openjdk:17
+        image: openjdk:21
         container_name: java-app-container
         build:
             context: .
@@ -23,13 +22,13 @@ services:
         environment:
             SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/arqueosDb
             SPRING_DATASOURCE_USERNAME: root
-            SPRING_DATASOURCE_PASSWORD: toor
+            SPRING_DATASOURCE_PASSWORD: root
         depends_on:
             - db
         networks:
-            - red_insurance
+            - red_arqueos
 
 volumes:
     db-data:
 networks:
-    red_insurance:
+    red_arqueos:
