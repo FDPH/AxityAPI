@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "cfb34dd8-778d-45d1-aa8d-65926ec70695",
+		"name": "axity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31881429"
+	},
+	"item": [
+		{
+			"name": "ConsultarDescuadres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/arqueos/descuadres?mes=1&productoId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"arqueos",
+						"descuadres"
+					],
+					"query": [
+						{
+							"key": "mes",
+							"value": "1"
+						},
+						{
+							"key": "productoId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "procesarBatch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"anno\": \"2025\",\r\n  \"mes\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/batch/procesar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"batch",
+						"procesar"
+					],
+					"query": [
+						{
+							"key": "anio",
+							"value": "2025",
+							"disabled": true
+						},
+						{
+							"key": "mes",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
